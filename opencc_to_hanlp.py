@@ -21,7 +21,7 @@ def convert_single(json_path, output_path):
             for dic_item in dicts:
                 dic_txt = dic_item['file'].replace('.ocd', '.txt')
                 rev = False
-                if not os.path.isfile(os.path.join(opencc_data, 'dictionary', dic_txt)):
+                if not os.path.isfile(os.path.join(opencc_data, 'dictionary', dic_txt)) and 'Rev' in dic_txt:
                     rev = True  # 有些Rev文件不存在，需要动态逆转
                     dic_txt = dic_txt.replace('Rev', '')
                 print(dic_txt, end=' ')
